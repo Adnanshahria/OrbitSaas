@@ -9,12 +9,19 @@ const WHATSAPP_URL = "https://wa.me/8801853452264";
 export const Navbar = () => {
   const { t, language, toggleLanguage } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showNavItems, setShowNavItems] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+      
+      // Show nav items when user scrolls past the hero section (approximately 80vh)
+      const heroHeight = window.innerHeight * 0.8;
+      setShowNavItems(scrollY > heroHeight);
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -41,23 +48,31 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <motion.a
-            href="#home"
-            className="flex items-center gap-3"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="h-10 w-10 rounded-lg overflow-hidden glass-card p-1">
-              <img
-                src="/orbit_saas_logo.png"
-                alt="ORBIT SaaS"
-                className="h-full w-full object-contain rounded-md"
-              />
-            </div>
-            <span className="font-display font-bold text-xl hidden sm:block gradient-text">
-              ORBIT SaaS
-            </span>
-          </motion.a>
+          <AnimatePresence>
+            {showNavItems && (
+              <motion.a
+                href="#home"
+                className="flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="h-10 w-10 rounded-lg overflow-hidden glass-card p-1">
+                  <img
+                    src="/orbit_saas_logo.png"
+                    alt="ORBIT SaaS"
+                    className="h-full w-full object-contain rounded-md"
+                  />
+                </div>
+                <span className="font-display font-bold text-xl hidden sm:block gradient-text">
+                  ORBIT SaaS
+                </span>
+              </motion.a>
+            )}
+          </AnimatePresence>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -88,20 +103,28 @@ export const Navbar = () => {
             </motion.button>
 
             {/* CTA Button */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="hidden md:block"
-            >
-              <Button
-                asChild
-                className="glow-button bg-primary text-primary-foreground font-semibold"
-              >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  {t.nav.bookAppointment}
-                </a>
-              </Button>
-            </motion.div>
+            <AnimatePresence>
+              {showNavItems && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hidden md:block"
+                >
+                  <Button
+                    asChild
+                    className="glow-button bg-primary text-primary-foreground font-semibold"
+                  >
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                      {t.nav.bookAppointment}
+                    </a>
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Mobile Menu Toggle */}
             <motion.button
