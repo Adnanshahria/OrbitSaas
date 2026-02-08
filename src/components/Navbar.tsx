@@ -18,7 +18,7 @@ export const Navbar = () => {
       setIsScrolled(scrollY > 20);
       
       // Show nav items when user scrolls past the hero section (approximately 80vh)
-      const heroHeight = window.innerHeight * 0.8;
+      const heroHeight = window.innerHeight * 0.6;
       setShowNavItems(scrollY > heroHeight);
     };
     
@@ -41,12 +41,12 @@ export const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "glass-card border-b border-border/50"
+          ? "glass-card border-b border-border/50 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between h-16 md:h-20">
+        <nav className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <AnimatePresence>
             {showNavItems && (
@@ -60,14 +60,14 @@ export const Navbar = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <div className="h-10 w-10 rounded-lg overflow-hidden glass-card p-1">
+                <div className="h-8 w-8 rounded-lg overflow-hidden glass-card p-1">
                   <img
                     src="/orbit_saas_logo.png"
                     alt="ORBIT SaaS"
                     className="h-full w-full object-contain rounded-md"
                   />
                 </div>
-                <span className="font-display font-bold text-xl hidden sm:block gradient-text">
+                <span className="font-display font-bold text-lg hidden sm:block gradient-text">
                   ORBIT SaaS
                 </span>
               </motion.a>
@@ -94,7 +94,7 @@ export const Navbar = () => {
             {/* Language Toggle */}
             <motion.button
               onClick={toggleLanguage}
-              className="glass-card px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-muted/50 transition-colors"
+              className="glass-card px-2.5 py-1 rounded-full text-sm font-medium flex items-center gap-1.5 hover:bg-muted/50 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -116,7 +116,8 @@ export const Navbar = () => {
                 >
                   <Button
                     asChild
-                    className="glow-button bg-primary text-primary-foreground font-semibold"
+                    size="sm"
+                    className="glow-button bg-primary text-primary-foreground font-semibold text-sm"
                   >
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                       {t.nav.bookAppointment}
@@ -129,10 +130,10 @@ export const Navbar = () => {
             {/* Mobile Menu Toggle */}
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground"
+              className="lg:hidden p-1.5 text-foreground"
               whileTap={{ scale: 0.9 }}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </motion.button>
           </div>
         </nav>

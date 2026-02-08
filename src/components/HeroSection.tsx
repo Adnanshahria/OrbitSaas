@@ -53,7 +53,7 @@ export const HeroSection = () => {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient pt-16"
     >
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -132,7 +132,7 @@ export const HeroSection = () => {
           <motion.img
             src="/orbit_saas_logo.png"
             alt="ORBIT SaaS"
-            className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-8 rounded-2xl object-contain"
+            className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 rounded-2xl object-contain"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{
@@ -145,7 +145,7 @@ export const HeroSection = () => {
 
           {/* Title */}
           <motion.h1
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+            className="font-display text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -155,7 +155,7 @@ export const HeroSection = () => {
 
           {/* Subtitle */}
           <motion.h2
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-foreground/90"
+            className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-foreground/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -165,7 +165,7 @@ export const HeroSection = () => {
 
           {/* Description */}
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
