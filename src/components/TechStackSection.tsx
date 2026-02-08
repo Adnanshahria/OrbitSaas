@@ -25,11 +25,16 @@ const techStack = {
 
 const TechBadge = ({ name, color }: { name: string; color: string }) => (
   <motion.div
-    className="glass-card px-4 py-2 md:px-6 md:py-3 rounded-full inline-flex items-center gap-2 whitespace-nowrap"
-    whileHover={{ scale: 1.05, y: -2 }}
-    transition={{ type: "spring", stiffness: 300 }}
+    className="glass-card-glossy px-5 py-3 md:px-6 md:py-3.5 rounded-full inline-flex items-center gap-3 whitespace-nowrap badge-glow shimmer"
+    whileHover={{ scale: 1.08, y: -3 }}
+    whileTap={{ scale: 0.98 }}
+    transition={{ type: "spring", stiffness: 400 }}
   >
-    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${color}`} />
+    <motion.div 
+      className={`w-3 h-3 rounded-full bg-gradient-to-r ${color} shadow-lg`}
+      animate={{ scale: [1, 1.2, 1] }}
+      transition={{ duration: 2, repeat: Infinity }}
+    />
     <span className="text-sm md:text-base font-medium text-foreground">{name}</span>
   </motion.div>
 );
