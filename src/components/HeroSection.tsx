@@ -129,8 +129,10 @@ export const HeroSection = () => {
           className="max-w-4xl mx-auto"
         >
           {/* Logo */}
-          <motion.div
-            className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-8 rounded-2xl overflow-hidden glass-card p-3 gradient-border"
+          <motion.img
+            src="/orbit_saas_logo.png"
+            alt="ORBIT SaaS"
+            className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-8 rounded-2xl object-contain"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{
@@ -139,13 +141,7 @@ export const HeroSection = () => {
               damping: 20,
               delay: 0.3,
             }}
-          >
-            <img
-              src="/orbit_saas_logo.png"
-              alt="ORBIT SaaS"
-              className="w-full h-full object-contain rounded-xl"
-            />
-          </motion.div>
+          />
 
           {/* Title */}
           <motion.h1
