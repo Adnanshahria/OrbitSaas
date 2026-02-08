@@ -45,33 +45,46 @@ const LeaderCard = ({
       transition={{ duration: 0.6, delay: index * 0.2 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="glass-card p-8 md:p-10 gradient-border text-center cursor-pointer transition-all duration-200 ease-out group"
+      className="glass-card-glossy p-8 md:p-10 gradient-border-animated text-center cursor-pointer transition-all duration-200 ease-out group"
     >
       <div className="relative z-10">
         {/* Avatar/Icon */}
         <motion.div
-          className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center relative"
-          whileHover={{ scale: 1.1 }}
+          className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 flex items-center justify-center relative shadow-xl"
+          whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-accent opacity-20 blur-md" />
-          <Icon className="w-12 h-12 md:w-14 md:h-14 text-primary relative z-10" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-accent opacity-30 blur-xl animate-pulse" />
+          <div className="absolute inset-1 rounded-full bg-background/50 backdrop-blur-sm" />
+          <Icon className="w-12 h-12 md:w-14 md:h-14 text-primary relative z-10 drop-shadow-lg" />
         </motion.div>
 
         {/* Name */}
-        <h3 className="font-display text-xl md:text-2xl font-bold mb-2 text-foreground">
+        <h3 className="font-display text-xl md:text-2xl font-bold mb-2 text-foreground group-hover:gradient-text-animated transition-all">
           {name}
         </h3>
 
         {/* Role */}
-        <p className="text-primary font-semibold mb-4 text-sm uppercase tracking-wider">
+        <motion.p 
+          className="text-primary font-semibold mb-4 text-sm uppercase tracking-wider"
+          whileHover={{ scale: 1.05 }}
+        >
           {role}
-        </p>
+        </motion.p>
 
         {/* Description */}
         <p className="text-muted-foreground leading-relaxed">
           {description}
         </p>
+
+        {/* Decorative line */}
+        <motion.div
+          className="mt-6 h-0.5 w-16 mx-auto bg-gradient-to-r from-primary via-secondary to-accent rounded-full"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        />
       </div>
     </motion.div>
   );

@@ -43,21 +43,27 @@ const ServiceCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="glass-card p-6 md:p-8 gradient-border cursor-pointer transition-all duration-200 ease-out group"
+      className="glass-card-glossy p-6 md:p-8 gradient-border cursor-pointer transition-all duration-200 ease-out group shimmer"
     >
       <div className="relative z-10">
         <motion.div
-          className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors"
+          className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:from-primary/30 group-hover:to-secondary/30 transition-all shadow-lg badge-glow"
           whileHover={{ scale: 1.1, rotate: 5 }}
         >
-          <Icon className="w-7 h-7 text-primary" />
+          <Icon className="w-8 h-8 text-primary" />
         </motion.div>
-        <h3 className="text-xl font-display font-semibold mb-3 text-foreground">
+        <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
           {title}
         </h3>
         <p className="text-muted-foreground leading-relaxed">
           {description}
         </p>
+        <motion.div
+          className="mt-4 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-full origin-left"
+          initial={{ scaleX: 0 }}
+          whileHover={{ scaleX: 1 }}
+          transition={{ duration: 0.3 }}
+        />
       </div>
     </motion.div>
   );
