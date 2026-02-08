@@ -27,11 +27,13 @@ export const Footer = () => {
               className="flex items-center gap-3"
               whileHover={{ scale: 1.02 }}
             >
-              <img
-                src="/orbit_saas_logo.png"
-                alt="ORBIT SaaS"
-                className="h-10 w-auto"
-              />
+              <div className="h-10 w-10 rounded-lg overflow-hidden glass-card p-1">
+                <img
+                  src="/orbit_saas_logo.png"
+                  alt="ORBIT SaaS"
+                  className="h-full w-full object-contain rounded-md"
+                />
+              </div>
               <span className="font-display font-bold text-lg gradient-text">
                 ORBIT SaaS
               </span>

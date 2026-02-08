@@ -47,11 +47,13 @@ export const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img
-              src="/orbit_saas_logo.png"
-              alt="ORBIT SaaS"
-              className="h-10 w-auto"
-            />
+            <div className="h-10 w-10 rounded-lg overflow-hidden glass-card p-1">
+              <img
+                src="/orbit_saas_logo.png"
+                alt="ORBIT SaaS"
+                className="h-full w-full object-contain rounded-md"
+              />
+            </div>
             <span className="font-display font-bold text-xl hidden sm:block gradient-text">
               ORBIT SaaS
             </span>
