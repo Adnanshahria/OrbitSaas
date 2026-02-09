@@ -46,3 +46,20 @@ src/
 npm install
 npm run dev    # Runs on http://localhost:8080
 ```
+
+## SEO Optimizations
+- **Domain**: orbitsaas.cloud
+- **Canonical URL**: https://orbitsaas.cloud/
+- **Keywords**: web development bangladesh, app development dhaka, ecommerce, mobile apps, cloud solutions + Bengali keywords
+- **Structured Data**: Organization, LocalBusiness, WebSite schemas (JSON-LD)
+- **Sitemap**: /sitemap.xml with hreflang support
+- **Robots.txt**: All major search engine bots enabled
+- **Open Graph & Twitter Cards**: Full social media previews
+- **Geo Tags**: Bangladesh local SEO
+
+## Post-Deployment Checklist
+1. Submit sitemap to Google Search Console
+2. Submit sitemap to Bing Webmaster Tools
+3. Verify domain ownership in Google Search Console
+4. Test structured data with Google Rich Results Test
+5. Check page speed with Google PageSpeed Insights
