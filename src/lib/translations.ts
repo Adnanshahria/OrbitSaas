@@ -34,6 +34,14 @@ export const translations = {
           title: "Enterprise Web Applications",
           description: "Develop robust, scalable enterprise solutions with advanced security, real-time analytics, and seamless third-party integrations.",
         },
+        {
+          title: "Mobile App Development",
+          description: "Build native and cross-platform mobile applications with intuitive UX, offline capabilities, and seamless backend integration.",
+        },
+        {
+          title: "Cloud & DevOps Solutions",
+          description: "Deploy, scale, and manage your infrastructure with modern cloud architecture, CI/CD pipelines, and automated monitoring.",
+        },
       ],
     },
     techStack: {
@@ -124,6 +132,14 @@ export const translations = {
         {
           title: "এন্টারপ্রাইজ ওয়েব অ্যাপ্লিকেশন",
           description: "উন্নত নিরাপত্তা, রিয়েল-টাইম অ্যানালিটিক্স এবং নিরবচ্ছিন্ন থার্ড-পার্টি ইন্টিগ্রেশন সহ শক্তিশালী, স্কেলেবল এন্টারপ্রাইজ সমাধান তৈরি করুন।",
+        },
+        {
+          title: "মোবাইল অ্যাপ ডেভেলপমেন্ট",
+          description: "স্বজ্ঞাত UX, অফলাইন সক্ষমতা এবং নিরবচ্ছিন্ন ব্যাকএন্ড ইন্টিগ্রেশন সহ নেটিভ এবং ক্রস-প্ল্যাটফর্ম মোবাইল অ্যাপ্লিকেশন তৈরি করুন।",
+        },
+        {
+          title: "ক্লাউড ও ডেভঅপস সমাধান",
+          description: "আধুনিক ক্লাউড আর্কিটেকচার, CI/CD পাইপলাইন এবং স্বয়ংক্রিয় মনিটরিং দিয়ে আপনার অবকাঠামো ডিপ্লয়, স্কেল এবং পরিচালনা করুন।",
         },
       ],
     },

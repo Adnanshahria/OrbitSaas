@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ShoppingCart, GraduationCap, User, Building2 } from "lucide-react";
+import { ShoppingCart, GraduationCap, User, Building2, Smartphone, Cloud } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServiceCard = ({
@@ -74,7 +74,7 @@ export const ServicesSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const icons = [ShoppingCart, GraduationCap, User, Building2];
+  const icons = [ShoppingCart, GraduationCap, User, Building2, Smartphone, Cloud];
 
   return (
     <section id="services" className="py-24 relative" ref={ref}>
@@ -98,7 +98,7 @@ export const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {t.services.items.map((service, index) => (
             <ServiceCard
               key={index}

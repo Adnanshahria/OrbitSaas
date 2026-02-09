@@ -16,12 +16,12 @@ export const Navbar = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 20);
-      
+
       // Show nav items when user scrolls past the hero section (approximately 80vh)
       const heroHeight = window.innerHeight * 0.6;
       setShowNavItems(scrollY > heroHeight);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -39,14 +39,13 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "glass-card border-b border-border/50 backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "glass-card border-b border-border/50 backdrop-blur-xl"
+        : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between h-14 md:h-16">
+        <nav className={`flex items-center h-14 md:h-16 ${showNavItems ? 'justify-between' : 'justify-end'}`}>
           {/* Logo */}
           <AnimatePresence>
             {showNavItems && (
@@ -90,7 +89,7 @@ export const Navbar = () => {
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ml-4">
             {/* Language Toggle */}
             <motion.button
               onClick={toggleLanguage}
